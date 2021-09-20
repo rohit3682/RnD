@@ -101,11 +101,14 @@ public class DependencyTracer {
 
     public static void main(String[] args) {
         DependencyTracer dependencyTracer = new DependencyTracer();
-        dependencyTracer.loadInput(args[0]);
-        System.out.println("Dependency Analysis");
-        dependencyTracer.traceDependencies(dependencyTracer.dependencyMap);
-        System.out.println("------------- \nInverse dependency");
-        dependencyTracer.traceDependencies(dependencyTracer.inverseMap);
+        if(args.length > 0) {
+            dependencyTracer.loadInput(args[0]);
+            System.out.println("Dependency Analysis");
+            dependencyTracer.traceDependencies(dependencyTracer.dependencyMap);
+            System.out.println("------------- \nInverse dependency");
+            dependencyTracer.traceDependencies(dependencyTracer.inverseMap);
+        } else
+            System.out.println("File path expected as first param to the program");
     }
 
 }
